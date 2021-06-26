@@ -4,9 +4,11 @@
 namespace App\Support;
 
 
+use ArrayIterator;
+use IteratorAggregate;
 use JetBrains\PhpStorm\Pure;
 
-class Collection
+class Collection implements IteratorAggregate
 {
     protected array $items = [];
 
@@ -24,5 +26,10 @@ class Collection
     public function count() : int
     {
         return count($this->items);
+    }
+
+    public function getIterator(): ArrayIterator
+    {
+       return new ArrayIterator($this->items);
     }
 }

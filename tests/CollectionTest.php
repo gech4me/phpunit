@@ -32,4 +32,24 @@ class CollectionTest extends TestCase
         $this->assertEquals('one',$result[0]);
         $this->assertEquals('two',$result[1]);
     }
+
+    public function testCollectionIsInstanceOfIteratorAggregate()
+    {
+        $collection = new App\Support\Collection;
+        $this->assertInstanceOf(IteratorAggregate::class, $collection);
+    }
+
+    public function testCollectionCanBeIterated()
+    {
+        $collection = new App\Support\Collection([
+            'one','two','three'
+        ]);
+
+        $items = [];
+        foreach ($collection as $item) {
+            $items[] = $item;
+        }
+
+        $this->assertCount(3, $items);
+    }
 }
