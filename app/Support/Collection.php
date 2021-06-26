@@ -37,8 +37,15 @@ class Collection implements IteratorAggregate
         $this->items = array_merge($this->items, $items);
     }
 
-    public function merge(Collection $collection)
+    public function merge(Collection $collection): array
     {
-        return $this->add($collection->get());
+        $this->add($collection->get());
+
+        return $this->items;
+    }
+
+    public function toJson(): bool|string
+    {
+        return json_encode($this->items);
     }
 }
