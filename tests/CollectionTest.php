@@ -15,9 +15,17 @@ class CollectionTest extends TestCase
     public function testCountIsCorrectForItemsPassedIn()
     {
         $collection = new App\Support\Collection([
-           'one','two','three'
+            'one','two','three'
         ]);
 
         $this->assertEquals(3,$collection->count());
+    }
+
+    public function testItemsReturnedMatchItemsPassedIn() {
+        $collection = new App\Support\Collection([
+            'one','two'
+        ]);
+
+        $this->assertCount(2, $collection->get());
     }
 }
