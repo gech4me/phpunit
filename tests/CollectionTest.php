@@ -26,6 +26,10 @@ class CollectionTest extends TestCase
             'one','two'
         ]);
 
-        $this->assertCount(2, $collection->get());
+        $result = $collection->get();
+
+        $this->assertCount(2, $result);
+        $this->assertEquals('one',$result[0]);
+        $this->assertEquals('two',$result[1]);
     }
 }
