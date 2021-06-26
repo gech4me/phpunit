@@ -53,4 +53,19 @@ class CollectionTest extends TestCase
         $this->assertCount(3, $items);
         $this->assertInstanceOf(ArrayIterator::class,$collection->getIterator());
     }
+
+    public function testCanCollectionMergeToAnotherCollection()
+    {
+        $collectionOne = new App\Support\Collection([
+            'one','two','three'
+        ]);
+
+        $collectionTwo = new App\Support\Collection([
+            'four','five'
+        ]);
+
+        $collectionOne->merge($collectionTwo);
+
+        $this->assertCount(5, $collectionOne->get());
+    }
 }
