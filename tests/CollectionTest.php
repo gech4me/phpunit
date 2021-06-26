@@ -91,4 +91,17 @@ class CollectionTest extends TestCase
         $this->assertIsString($collection->toJson());
         $this->assertEquals('[{"username":"getachew"},{"username":"gech2me"}]', $collection->toJson());
     }
+
+    public function testJsonEncodingACollectionObjectReturnsJson()
+    {
+        $collection = new \App\Support\Collection([
+            ["username" => "getachew"],
+            ["username" => "gech2me"],
+        ]);
+
+        $encoded = json_encode($collection);
+
+        $this->assertIsString($encoded);
+        $this->assertEquals('[{"username":"getachew"},{"username":"gech2me"}]', $encoded);
+    }
 }

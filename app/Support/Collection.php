@@ -7,8 +7,9 @@ namespace App\Support;
 use ArrayIterator;
 use IteratorAggregate;
 use JetBrains\PhpStorm\Pure;
+use JsonSerializable;
 
-class Collection implements IteratorAggregate
+class Collection implements IteratorAggregate, JsonSerializable
 {
     protected array $items = [];
 
@@ -47,5 +48,10 @@ class Collection implements IteratorAggregate
     public function toJson(): bool|string
     {
         return json_encode($this->items);
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->items;
     }
 }
