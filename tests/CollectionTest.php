@@ -51,5 +51,6 @@ class CollectionTest extends TestCase
         }
 
         $this->assertCount(3, $items);
+        $this->assertInstanceOf(ArrayIterator::class,$collection->getIterator());
     }
 }
