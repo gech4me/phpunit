@@ -68,4 +68,16 @@ class CollectionTest extends TestCase
 
         $this->assertCount(5, $collectionOne->get());
     }
+
+    public function testCanAddToExistingCollection()
+    {
+        $collection = new App\Support\Collection([
+            'one','two','three'
+        ]);
+
+        $collection->add(['four']);
+
+        $this->assertEquals(4, $collection->count());
+        $this->assertCount(4, $collection->get());
+    }
 }
