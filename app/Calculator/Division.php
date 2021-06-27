@@ -16,7 +16,7 @@ class Division extends OperationAbstract implements OperationInterface
             throw new NoOperandException;
         }
 
-        return array_reduce($this->operands, function ($carry, $item) {
+        return array_reduce(array_filter($this->operands), function ($carry, $item) {
             if ($carry !== null && $item !== null) {
                 return $carry / $item;
             }

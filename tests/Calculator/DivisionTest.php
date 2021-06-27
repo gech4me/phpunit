@@ -15,4 +15,12 @@ class DivisionTest extends TestCase
 
         $this->assertEquals(2,$division->calculate());
     }
+
+    public function testRemovesDivisionByZero()
+    {
+        $division = new \App\Calculator\Division;
+        $division->setOperands([50,0,0,2,0]);
+
+        $this->assertEquals(25, $division->calculate());
+    }
 }
