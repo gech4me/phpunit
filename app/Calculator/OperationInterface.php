@@ -6,5 +6,5 @@ namespace App\Calculator;
 
 interface OperationInterface
 {
-    public function calculate() : int | float;
+    public function calculate();
 }
