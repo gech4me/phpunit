@@ -12,6 +12,10 @@ class Calculator
         $this->operations[] = $operation;
     }
 
+    public function setOperations(array $operations) {
+        $this->operations = $operations;
+    }
+
     public function getOperations() : array
     {
         return $this->operations;
