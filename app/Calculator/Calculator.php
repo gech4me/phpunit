@@ -23,8 +23,14 @@ class Calculator
         return $this->operations;
     }
 
-    public function calculate()
+    public function calculate(): array | int | float
     {
+        if(count($this->operations) > 1) {
+            return array_map(function ($operation) {
+                return $operation->calculate();
+            }, $this->operations);
+        }
+
         return $this->operations[0]->calculate();
     }
 }
