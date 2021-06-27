@@ -7,14 +7,8 @@ namespace App\Calculator;
 use App\Calculator\Exception\NoOperandException;
 use JetBrains\PhpStorm\Pure;
 
-class Addition implements OperationInterface
+class Addition extends OperationAbstract implements OperationInterface
 {
-    protected array $operands = [];
-
-    public function setOperands(array $operands)
-    {
-        $this->operands = $operands;
-    }
 
     #[Pure]
     public function calculate() : int | float
