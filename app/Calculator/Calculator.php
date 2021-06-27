@@ -22,4 +22,9 @@ class Calculator
     {
         return $this->operations;
     }
+
+    public function calculate()
+    {
+        return $this->operations[0]->calculate();
+    }
 }

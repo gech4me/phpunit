@@ -46,4 +46,15 @@ class CalculatorTest extends TestCase
 
         $this->assertCount(1, $calculator->getOperations());
     }
+
+    public function testCanCalculateResult()
+    {
+        $addition = new Addition;
+        $addition->setOperands([2,3]);
+
+        $calculator = new \App\Calculator\Calculator;
+        $calculator->setOperation($addition);
+
+        $this->assertEquals(5,$calculator->calculate());
+    }
 }
