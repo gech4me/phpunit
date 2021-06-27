@@ -3,6 +3,7 @@
 
 namespace Calculator;
 
+use App\Calculator\Division;
 use PHPUnit\Framework\TestCase;
 
 class DivisionTest extends TestCase
@@ -14,6 +15,14 @@ class DivisionTest extends TestCase
         $division->setOperands([100, 50]);
 
         $this->assertEquals(2,$division->calculate());
+    }
+
+    public function testThrowNoExceptionOperandIfOperandsIsEmpty()
+    {
+        $this->expectException(\App\Calculator\Exception\NoOperandException::class);
+
+        $division = new Division();
+        $division->calculate();
     }
 
     public function testRemovesDivisionByZero()
