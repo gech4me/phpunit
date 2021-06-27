@@ -13,7 +13,9 @@ class Calculator
     }
 
     public function setOperations(array $operations) {
-        $this->operations = $operations;
+        $this->operations = array_merge($this->operations, array_filter($operations, function ($operation) {
+            return $operation instanceof OperationInterface;
+        }));
     }
 
     public function getOperations() : array
